@@ -22,22 +22,22 @@ export const RecoveryEmail = ({
   siteName,
   confirmationUrl,
 }: RecoveryEmailProps) => (
-  <Html lang="en" dir="ltr">
+  <Html lang="id" dir="ltr">
     <Head />
-    <Preview>Reset your password for {siteName}</Preview>
+    <Preview>Reset password untuk {siteName}</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Heading style={h1}>Reset your password</Heading>
+        <Heading style={h1}>🔐 Reset Password Kamu</Heading>
         <Text style={text}>
-          We received a request to reset your password for {siteName}. Click
-          the button below to choose a new password.
+          Kami menerima permintaan untuk mereset password akun {siteName} kamu.
+          Klik tombol di bawah untuk membuat password baru.
         </Text>
         <Button style={button} href={confirmationUrl}>
           Reset Password
         </Button>
         <Text style={footer}>
-          If you didn't request a password reset, you can safely ignore this
-          email. Your password will not be changed.
+          Jika kamu tidak meminta reset password, abaikan email ini.
+          Password kamu tidak akan berubah.
         </Text>
       </Container>
     </Body>
@@ -46,12 +46,13 @@ export const RecoveryEmail = ({
 
 export default RecoveryEmail
 
-const main = { backgroundColor: '#ffffff', fontFamily: 'Arial, sans-serif' }
+const main = { backgroundColor: '#ffffff', fontFamily: "'DM Sans', Arial, sans-serif" }
 const container = { padding: '20px 25px' }
 const h1 = {
   fontSize: '22px',
   fontWeight: 'bold' as const,
-  color: '#000000',
+  color: '#1e1e5a',
+  fontFamily: "'Space Grotesk', Arial, sans-serif",
   margin: '0 0 20px',
 }
 const text = {
@@ -61,11 +62,12 @@ const text = {
   margin: '0 0 25px',
 }
 const button = {
-  backgroundColor: '#000000',
+  backgroundColor: '#4f46e5',
   color: '#ffffff',
   fontSize: '14px',
-  borderRadius: '8px',
-  padding: '12px 20px',
+  borderRadius: '12px',
+  padding: '12px 24px',
   textDecoration: 'none',
+  fontWeight: 'bold' as const,
 }
 const footer = { fontSize: '12px', color: '#999999', margin: '30px 0 0' }
