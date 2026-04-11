@@ -72,7 +72,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="text-sm text-muted-foreground bg-secondary/50 rounded-lg px-3 py-2 font-mono">
-                user_abc123@tempmail.edu
+                user_abc123@adzstore.my.id
               </div>
               {[
                 { from: "noreply@github.com", subject: "Verifikasi email Anda", time: "2 menit lalu", unread: true },
