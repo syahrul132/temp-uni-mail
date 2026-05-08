@@ -11,6 +11,12 @@ const generateRandomEmail = () => {
   return `${result}@adzstore.my.id`;
 };
 
+export class InsufficientCreditsError extends Error {
+  constructor() {
+    super("insufficient_credits");
+  }
+}
+
 export const useTempEmails = () => {
   const { user } = useAuth();
   const queryClient = useQueryClient();
@@ -30,15 +36,22 @@ export const useTempEmails = () => {
 
   const createEmail = useMutation({
     mutationFn: async () => {
-      const { data, error } = await supabase
-        .from("temp_emails")
-        .insert({ user_id: user!.id, email_address: generateRandomEmail() })
-        .select()
-        .single();
+      const address = generateRandomEmail();
+      const { data, error } = await supabase.rpc("consume_credit_for_email", {
+        p_email_address: address,
+      });
       if (error) throw error;
-      return data;
+      const result = data as { success: boolean; error?: string; email_id?: string };
+      if (!result.success) {
+        if (result.error === "insufficient_credits") throw new InsufficientCreditsError();
+        throw new Error(result.error || "failed");
+      }
+      return result;
     },
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["temp-emails"] }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["temp-emails"] });
+      queryClient.invalidateQueries({ queryKey: ["profile"] });
+    },
   });
 
   return { emails, isLoading, createEmail };
