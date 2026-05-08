@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      api_keys: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          key_hash: string
+          key_prefix: string
+          last_used_at: string | null
+          name: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          key_hash: string
+          key_prefix: string
+          last_used_at?: string | null
+          name?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          key_hash?: string
+          key_prefix?: string
+          last_used_at?: string | null
+          name?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       email_messages: {
         Row: {
           body: string
@@ -151,6 +184,7 @@ export type Database = {
           created_at: string
           display_name: string | null
           id: string
+          unlimited_until: string | null
           updated_at: string
           user_id: string
         }
@@ -159,6 +193,7 @@ export type Database = {
           created_at?: string
           display_name?: string | null
           id?: string
+          unlimited_until?: string | null
           updated_at?: string
           user_id: string
         }
@@ -167,6 +202,7 @@ export type Database = {
           created_at?: string
           display_name?: string | null
           id?: string
+          unlimited_until?: string | null
           updated_at?: string
           user_id?: string
         }
@@ -282,6 +318,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      add_credits: {
+        Args: { p_amount: number; p_user_id: string }
+        Returns: undefined
+      }
+      consume_credit_for_email: {
+        Args: { p_email_address: string }
+        Returns: Json
+      }
       delete_email: {
         Args: { message_id: number; queue_name: string }
         Returns: boolean
@@ -289,6 +333,10 @@ export type Database = {
       enqueue_email: {
         Args: { payload: Json; queue_name: string }
         Returns: number
+      }
+      grant_unlimited_subscription: {
+        Args: { p_months: number; p_user_id: string }
+        Returns: undefined
       }
       has_role: {
         Args: {
