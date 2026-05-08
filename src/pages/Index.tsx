@@ -23,6 +23,7 @@ const Index = () => {
               <Button size="sm" className="glow-primary">Daftar Gratis</Button>
             </Link>
           </div>
+          {/* Note: After login users go to /app/dashboard */}
         </div>
       </nav>
 

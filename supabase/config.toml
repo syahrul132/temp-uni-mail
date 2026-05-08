@@ -7,3 +7,5 @@ project_id = "dukqggqvegrvccyqmerz"
     verify_jwt = true
   [functions.receive-inbound-email]
     verify_jwt = false
+  [functions.tempmail-api]
+    verify_jwt = false
