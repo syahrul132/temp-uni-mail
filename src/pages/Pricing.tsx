@@ -4,40 +4,31 @@ import { Mail, Check, ArrowLeft, CreditCard, Smartphone, Globe } from "lucide-re
 
 const plans = [
   {
-    name: "Gratis",
+    name: "Free",
     price: "Rp 0",
     period: "",
-    features: ["Email aktif 24 jam", "Kirim & terima email", "1 alamat email"],
+    features: ["3 credits saat register", "Email aktif 24 jam", "Kirim & terima email"],
     cta: "Mulai Gratis",
     href: "/auth?tab=register",
     popular: false,
   },
   {
-    name: "30 Hari",
-    price: "Rp 10.000",
-    period: "/30 hari",
-    features: ["Email aktif 30 hari", "Kirim & terima email", "Multi alamat email", "Prioritas support"],
-    cta: "Top-Up Sekarang",
-    href: "#",
+    name: "Top-up Credits",
+    price: "Rp 1.000",
+    period: "/credit",
+    features: ["1 credit = 1 email (24 jam)", "Bayar sesuai pemakaian", "Tidak ada masa kadaluarsa"],
+    cta: "Top-Up",
+    href: "/app/plan",
+    popular: false,
+  },
+  {
+    name: "Premium Unlimited",
+    price: "Rp 150.000",
+    period: "/3 bulan",
+    features: ["Unlimited email selama 3 bulan", "Akses API key untuk automation", "Email tidak expired", "Prioritas support"],
+    cta: "Upgrade Premium",
+    href: "/app/plan",
     popular: true,
-  },
-  {
-    name: "90 Hari",
-    price: "Rp 25.000",
-    period: "/90 hari",
-    features: ["Email aktif 90 hari", "Kirim & terima email", "Multi alamat email", "Prioritas support"],
-    cta: "Top-Up Sekarang",
-    href: "#",
-    popular: false,
-  },
-  {
-    name: "Unlimited",
-    price: "Rp 50.000",
-    period: "/selamanya",
-    features: ["Email aktif selamanya", "Kirim & terima email", "Unlimited alamat email", "Prioritas support", "Akses fitur premium"],
-    cta: "Top-Up Sekarang",
-    href: "#",
-    popular: false,
   },
 ];
 
@@ -79,7 +70,7 @@ const Pricing = () => {
           </div>
 
           {/* Plans */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
             {plans.map((plan, i) => (
               <div key={i} className={`glass-card p-6 space-y-4 relative ${plan.popular ? "border-primary/30 glow-primary" : ""}`}>
                 {plan.popular && (
