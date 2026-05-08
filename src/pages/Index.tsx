@@ -131,10 +131,10 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <div className="glass-card p-8 space-y-4">
-              <h3 className="font-heading text-xl font-bold text-foreground">Gratis</h3>
+              <h3 className="font-heading text-xl font-bold text-foreground">Free</h3>
               <p className="text-3xl font-heading font-bold text-foreground">Rp 0</p>
               <ul className="space-y-2">
-                {["Email aktif 24 jam", "Kirim & terima email", "1 alamat email"].map((f, i) => (
+                {["3 credits saat register", "Email aktif 24 jam", "Kirim & terima email"].map((f, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Check className="h-4 w-4 text-primary" />{f}
                   </li>
@@ -148,17 +148,17 @@ const Index = () => {
               <div className="absolute -top-3 left-6 px-3 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full">
                 Populer
               </div>
-              <h3 className="font-heading text-xl font-bold text-foreground">Premium</h3>
-              <p className="text-3xl font-heading font-bold text-foreground">Rp 10.000<span className="text-sm text-muted-foreground font-normal">/30 hari</span></p>
+              <h3 className="font-heading text-xl font-bold text-foreground">Premium Unlimited</h3>
+              <p className="text-3xl font-heading font-bold text-foreground">Rp 150.000<span className="text-sm text-muted-foreground font-normal">/3 bulan</span></p>
               <ul className="space-y-2">
-                {["Email aktif unlimited", "Kirim & terima email", "Multi alamat email", "Prioritas support"].map((f, i) => (
+                {["Unlimited email selama 3 bulan", "Akses API key untuk automation", "Email tidak expired", "Prioritas support"].map((f, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Check className="h-4 w-4 text-primary" />{f}
                   </li>
                 ))}
               </ul>
               <Link to="/pricing">
-                <Button className="w-full glow-primary">Top-Up Sekarang</Button>
+                <Button className="w-full glow-primary">Upgrade Sekarang</Button>
               </Link>
             </div>
           </div>
